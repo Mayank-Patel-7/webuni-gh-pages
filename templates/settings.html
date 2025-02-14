@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduTech Pro Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-red: #e31837;
+        --dark-red: #c41230;
+        --light-grey: #f5f5f5;
+        --medium-grey: #666;
+        --pure-white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--light-grey);
+        color: #333;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 280px;
+        background: var(--primary-red);
+        position: fixed;
+        height: 100vh;
+        padding: 2rem 1.5rem;
+        transition: transform 0.3s ease;
+        z-index: 1000;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 4rem;
+      }
+
+      .brand-icon {
+        font-size: 2rem;
+        color: var(--pure-white);
+      }
+
+      .brand-text {
+        color: var(--pure-white);
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        color: var(--pure-white);
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        margin-bottom: 0.5rem;
+      }
+
+      .nav-item:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateX(5px);
+      }
+
+      /* Main Content */
+      .main-content {
+        margin-left: 280px;
+        padding: 2rem 3rem;
+      }
+
+      /* Settings Section Styling */
+      .settings-section {
+        background: var(--pure-white);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        margin: 2rem 0;
+      }
+
+      .settings-options {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--light-grey);
+        color: var(--medium-grey);
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .btn:hover {
+        background: rgba(227, 24, 55, 0.08);
+        color: var(--primary-red);
+      }
+
+      /* Mobile Menu */
+      @media (max-width: 768px) {
+        .sidebar {
+          transform: translateX(-100%);
+        }
+
+        .main-content {
+          margin-left: 0;
+          padding: 1.5rem;
+        }
+
+        .menu-icon {
+          display: block !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Mobile Menu Icon -->
+    <div class="menu-icon" style="display: none">☰</div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="brand">
+        <i class="fas fa-graduation-cap brand-icon"></i>
+        <div class="brand-text">EduTech Pro</div>
+      </div>
+
+      <nav>
+        <a href="#" class="nav-item">
+          <i class="fas fa-home"></i>
+          Dashboard
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-folder"></i>
+          My Files
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-question-circle"></i>
+          Quizzes
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-cog"></i>
+          Settings
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-podcast"></i>
+          Text to Podcast
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-robot"></i>
+          AI Assistant
+        </a>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Settings Section -->
+      <section id="settings">
+        <div class="settings-section">
+          <h2>Settings</h2>
+          <div class="settings-options">
+            <button class="btn" onclick="openSettings('profile')">
+              <i class="fas fa-user"></i>
+              Profile Settings
+            </button>
+            <button class="btn" onclick="openSettings('notifications')">
+              <i class="fas fa-bell"></i>
+              Notification Preferences
+            </button>
+            <button class="btn" onclick="openSettings('privacy')">
+              <i class="fas fa-shield-alt"></i>
+              Privacy Settings
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Add mobile menu toggle
+      document.querySelector(".menu-icon").addEventListener("click", () => {
+        document.querySelector(".sidebar").style.transform = "translateX(0)";
+      });
+
+      // Close sidebar when clicking outside on mobile
+      document.addEventListener("click", (e) => {
+        if (
+          window.innerWidth <= 768 &&
+          !e.target.closest(".sidebar") &&
+          !e.target.closest(".menu-icon")
+        ) {
+          document.querySelector(".sidebar").style.transform =
+            "translateX(-100%)";
+        }
+      });
+
+      // Settings functionality
+      function openSettings(settingType) {
+        console.log(`Opening ${settingType} settings`);
+        alert(`Opening ${settingType} settings`);
+      }
+    </script>
+  </body>
+</html>

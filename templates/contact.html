@@ -1,301 +1,668 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>WebUni - Education Template</title>
-	<meta charset="UTF-8">
-	<meta name="description" content="WebUni Education Template">
-	<meta name="keywords" content="webuni, education, creative, html">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Favicon -->   
-	<link href="img/favicon.ico" rel="shortcut icon"/>
+  <head>
+    <title>WebUni - Education Template</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="WebUni Education Template" />
+    <meta name="keywords" content="webuni, education, creative, html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="shortcut icon" />
 
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
 
-	<style>
-		.animate-input {
-			opacity: 0;
-			animation: slideUp 0.5s ease forwards;
-		}
+    <!-- Stylesheets -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/owl.carousel.css') }}"
+    />
 
-		.animate-title {
-			opacity: 0;
-			animation: fadeIn 0.8s ease forwards;
-		}
+    <style>
+      :root {
+        --primary-red: #e31837;
+        --dark-red: #ff8383;
+        --light-grey: #f5f5f5;
+        --medium-grey: #666;
+        --pure-white: #ffffff;
+      }
 
-		@keyframes slideUp {
-			from {
-				opacity: 0;
-				transform: translateY(20px);
-			}
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-		@keyframes fadeIn {
-			from {
-				opacity: 0;
-			}
-			to {
-				opacity: 1;
-			}
-		}
+      body {
+        font-family: "Segoe UI", "Raleway", system-ui, -apple-system, sans-serif;
+        background-color: var(--light-grey);
+        color: #333;
+      }
 
-		.widget-item h4 {
-			font-size: 1.4rem;
-			margin-bottom: 1.2rem;
-		}
+      .animate-input {
+        opacity: 0;
+        animation: slideUp 0.5s ease forwards;
+      }
 
-		.widget-item ul li a {
-			font-size: 1.1rem;
-			line-height: 1.8;
-		}
+      .animate-title {
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+      }
 
-		.contact-list li {
-			font-size: 1.1rem;
-			line-height: 1.8;
-		}
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-		.section-title h2 {
-			font-size: 2.5rem !important;
-		}
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
 
-		.section-title p {
-			font-size: 1.1rem !important;
-			line-height: 1.6;
-		}
-	</style>
+      /* Header styles */
+      .header-section {
+        padding: 1.5rem 0;
+        background-color: var(--pure-white);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
 
-	<!--[if lt IE 9]>
-	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
+      .site-logo img {
+        max-height: 50px;
+      }
 
-</head>
-<body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
+      .main-menu ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+      }
 
-	<!-- Header section -->
-	<header class="header-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-3">
-					<div class="site-logo">
-						<img src="img/logo.png" alt="">
-					</div>
-					<div class="nav-switch">
-						<i class="fa fa-bars"></i>
-						<a href="/addlog" class="site-btn header-btn">Login</a>
-					</div>
-				</div>
-				<div class="col-lg-9 col-md-9">
-					<a href="" class="site-btn header-btn">Login</a>
-					<nav class="main-menu">
-						<ul>
-							<li><a href="/">Home</a></li>
-							<li><a href="/elements">About us</a></li>
-							<li><a href="/addlog">Admin</a></li>
-							<li><a href="/contact">Contact</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- Header section end -->
+      .main-menu ul li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
 
+      .main-menu ul li a:hover {
+        color: var(--primary-red);
+      }
 
-	<!-- Page info -->
-	<div class="page-info-section set-bg" data-setbg="{{ url_for('static', filename='img/bg.jpg') }}">
-		<div class="container">
-			<div class="site-breadcrumb">
-				<a href="#">Home</a>
-				<span>Contact</span>
-			</div>
-		</div>
-	</div>
-	<!-- Page info end -->
+      .site-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--primary-red);
+        color: white;
+        padding: 0.6rem 1.5rem;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background 0.2s ease;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+      }
 
+      .site-btn:hover {
+        background: var(--dark-red);
+        color: white;
+        text-decoration: none;
+      }
 
-	<!-- search section -->
-	<section class="search-section ss-other-page">
-		<div class="container">
-			<div class="search-warp">
-				<div class="section-title text-white">
-					<h2 style="font-size: 2.5rem;"><span>Search your course</span></h2>
-				</div>
-				<div class="row">
-	
-					<div class="col-lg-10 offset-lg-1">
-						<!-- search form -->
-						<form class="course-search-form">
-							<input type="text" placeholder="Course">
-							<input type="text" class="last-m" placeholder="Category">
-							<button class="site-btn btn-dark">Search Couse</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- search section end -->
+      .header-btn {
+        float: right;
+      }
 
+      /* Page info section */
+      .page-info-section {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 0;
+        position: relative;
+      }
 
+      .page-info-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+      }
 
-	<!-- Page -->
-	<section class="contact-page spad pb-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="contact-form-warp">
-                        <div class="section-title text-white text-left">
-                            <h2 class="animate-title" style="font-size: 2.8rem !important;">Get in Touch</h2>
-                            <p style="font-size: 1.2rem !important; line-height: 1.8 !important;">Ready to start your learning journey? Our team is here to guide you through our courses and help you achieve your educational goals. Whether you have questions about course content, admission process, or need technical support, we're here to help.</p>
-                        </div>
-                        <form class="contact-form">
-                            <input type="text" placeholder="Your Name" class="animate-input" style="font-size: 1.1rem !important; padding: 15px !important; border-radius: 5px !important; width: 100% !important; margin-bottom: 20px !important;">
-                            <input type="text" placeholder="Your E-mail" class="animate-input" style="font-size: 1.1rem !important; padding: 15px !important; border-radius: 5px !important; width: 100% !important; margin-bottom: 20px !important;">
-                            <input type="text" placeholder="Subject" class="animate-input" style="font-size: 1.1rem !important; padding: 15px !important; border-radius: 5px !important; width: 100% !important; margin-bottom: 20px !important;">
-                            <textarea placeholder="Message" class="animate-input" style="font-size: 1.1rem !important; padding: 15px !important; border-radius: 5px !important; width: 100% !important; min-height: 150px !important; margin-bottom: 20px !important;"></textarea>
-                            <button class="site-btn animate-input" style="font-size: 1.2rem !important; padding: 15px 30px !important; border-radius: 5px !important; background-color: #d82a4e !important; border: none !important;">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-info-area">
-                        <div class="section-title text-left p-0">
-                            <h2 style="font-size: 2.5rem !important; color: #333 !important;">Contact Info</h2>
-                            <p style="font-size: 1.2rem !important; line-height: 1.6 !important;">Connect with us through any of these channels. Our support team is available Monday through Saturday, 9 AM to 6 PM IST.</p>
-                        </div>
-                        <div class="phone-number">
-                            <span style="font-size: 1.2rem !important; display: block !important;">Toll Free Number</span>
-                            <h2 style="font-size: 1.8rem !important; color: #333 !important;">+91 1800 200 3000</h2>
-                        </div>
-                        <ul class="contact-list" style="font-size: 1.2rem !important; line-height: 1.8 !important;">
-                            <li style="margin-bottom: 15px !important;">WebUni Education Campus<br>Sector 62, Noida<br>Uttar Pradesh, India 201309</li>
-                            <li style="margin-bottom: 15px !important;">+91 98765 43210</li>
-                            <li>admissions@webuni.edu.in</li>
-                        </ul>
-                        <div class="social-links">
-                            // ... existing social links ...
-                        </div>
-                    </div>
-                </div>
+      .site-breadcrumb {
+        position: relative;
+        z-index: 1;
+        color: white;
+        font-size: 1.1rem;
+      }
+
+      .site-breadcrumb a {
+        color: var(--pure-white);
+        margin-right: 10px;
+      }
+
+      .site-breadcrumb span {
+        color: var(--pure-white);
+        opacity: 0.8;
+      }
+
+      /* Search section */
+      .search-section {
+        background-color: var(--primary-red);
+        padding: 3rem 0;
+      }
+
+      .section-title h2 {
+        color: var(--pure-white);
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-title p {
+        color: var(--pure-white);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        opacity: 0.8;
+      }
+
+      .course-search-form {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .course-search-form input {
+        flex: 1;
+        padding: 1rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+
+      .btn-dark {
+        background-color: #333;
+      }
+
+      .btn-dark:hover {
+        background-color: #222;
+      }
+
+      /* Contact page styles */
+      .contact-page {
+        padding: 5rem 0;
+      }
+
+      .contact-form-warp {
+        background-color: var(--primary-red);
+        padding: 3rem;
+        border-radius: 12px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+
+      .contact-info-area {
+        padding: 3rem;
+        background-color: var(--pure-white);
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .phone-number {
+        margin: 2rem 0;
+      }
+
+      .contact-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .contact-list li {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .social-links a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: #f0f0f0;
+        color: #333;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background-color: var(--primary-red);
+        color: white;
+      }
+
+      /* Banner section */
+      .banner-section {
+        background-color: var(--pure-white);
+        padding: 5rem 0;
+        text-align: center;
+      }
+
+      /* Footer section */
+      .footer-section {
+        background-color: #333;
+        padding-top: 5rem;
+        color: white;
+      }
+
+      .footer-warp {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .widget-item {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .widget-item h4 {
+        color: var(--pure-white);
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .widget-item ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .widget-item ul li a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 1.1rem;
+        line-height: 2;
+        transition: color 0.2s ease;
+      }
+
+      .widget-item ul li a:hover {
+        color: var(--pure-white);
+      }
+
+      .footer-newslatter input {
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: none;
+        border-radius: 6px;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem 0;
+        margin-top: 4rem;
+      }
+
+      .footer-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-menu li a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .footer-menu li a:hover {
+        color: var(--pure-white);
+      }
+
+      .copyright {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .copyright a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .main-menu {
+          display: none;
+        }
+
+        .nav-switch {
+          display: block;
+          float: right;
+          margin-top: 10px;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+
+        .course-search-form {
+          flex-direction: column;
+        }
+
+        .footer-warp {
+          flex-direction: column;
+        }
+
+        .contact-form-warp,
+        .contact-info-area {
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+      <div class="loader"></div>
+    </div>
+
+    <!-- Header section -->
+    <header class="header-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-3 col-md-3">
+            <div class="site-logo">
+              <img src="img/logo.png" alt="WebUni Logo" />
             </div>
-            <div id="map-canvas"></div>
+            <div class="nav-switch">
+              <i class="fa fa-bars"></i>
+            </div>
+          </div>
+          <div class="col-lg-9 col-md-9">
+            <a href="/addlog" class="site-btn header-btn">Login</a>
+            <nav class="main-menu">
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/elements">About us</a></li>
+                <li><a href="/addlog">Admin</a></li>
+                <li><a href="/contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
-    </section>
-	<!-- Page end -->
+      </div>
+    </header>
+    <!-- Header section end -->
 
-
-	<!-- banner section -->
-	<section class="banner-section spad">
-        <div class="container">
-            <div class="section-title mb-0 pb-2">
-                <h2 style="font-size: 2.8rem !important;">Join Our Community Now!</h2>
-                <p style="font-size: 1.2rem !important; line-height: 1.8 !important;">Take the first step towards your future. Join thousands of students already learning with us. Early bird discounts available for upcoming batches.</p>
-            </div>
-            <div class="text-center pt-5">
-                <a href="#" class="site-btn" style="font-size: 1.2rem !important; padding: 15px 40px !important; border-radius: 5px !important; background-color: #d82a4e !important;">Register Now</a>
-            </div>
+    <!-- Page info -->
+    <div
+      class="page-info-section set-bg"
+      data-setbg="{{ url_for('static', filename='img/bg.jpg') }}"
+    >
+      <div class="container">
+        <div class="site-breadcrumb">
+          <a href="#">Home</a>
+          <span>Contact</span>
         </div>
+      </div>
+    </div>
+    <!-- Page info end -->
+
+    <!-- search section -->
+    <section class="search-section ss-other-page">
+      <div class="container">
+        <div class="search-warp">
+          <div class="section-title text-white">
+            <h2><span>Search your course</span></h2>
+          </div>
+          <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+              <!-- search form -->
+              <form class="course-search-form">
+                <input type="text" placeholder="Course" />
+                <input type="text" class="last-m" placeholder="Category" />
+                <button class="site-btn btn-dark">Search Course</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-	<!-- banner section end -->
+    <!-- search section end -->
 
+    <!-- Page -->
+    <section class="contact-page spad pb-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="contact-form-warp">
+              <div class="section-title text-white text-left">
+                <h2 class="animate-title">Get in Touch</h2>
+                <p>
+                  Ready to start your learning journey? Our team is here to
+                  guide you through our courses and help you achieve your
+                  educational goals. Whether you have questions about course
+                  content, admission process, or need technical support, we're
+                  here to help.
+                </p>
+              </div>
+              <form class="contact-form">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  class="animate-input"
+                />
+                <input
+                  type="text"
+                  placeholder="Your E-mail"
+                  class="animate-input"
+                />
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  class="animate-input"
+                />
+                <textarea
+                  placeholder="Message"
+                  class="animate-input"
+                ></textarea>
+                <button class="site-btn animate-input">Send Message</button>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="contact-info-area">
+              <div class="section-title text-left p-0">
+                <h2 style="color: #333">Contact Info</h2>
+                <p>
+                  Connect with us through any of these channels. Our support
+                  team is available Monday through Saturday, 9 AM to 6 PM IST.
+                </p>
+              </div>
+              <div class="phone-number">
+                <span>Toll Free Number</span>
+                <h2 style="color: var(--primary-red)">+91 1800 200 3000</h2>
+              </div>
+              <ul class="contact-list">
+                <li>
+                  WebUni Education Campus<br />Sector 62, Noida<br />Uttar
+                  Pradesh, India 201309
+                </li>
+                <li>+91 98765 43210</li>
+                <li>admissions@webuni.edu.in</li>
+              </ul>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="map-canvas" style="height: 400px; margin-top: 3rem"></div>
+      </div>
+    </section>
+    <!-- Page end -->
 
-	<!-- footer section -->
-	<footer class="footer-section spad pb-0">
-		
-		<div class="footer-top">
-			<div class="footer-warp">
-				<div class="row">
-					<div class="widget-item">
-						<h4>Contact Info</h4>
-						<ul class="contact-list">
-							<li>1481 Creekside Lane <br>Avila Beach, CA 931</li>
-							<li>+53 345 7953 32453</li>
-							<li>yourmail@gmail.com</li>
-						</ul>
-					</div>
-					<div class="widget-item">
-						<h4>Engeneering</h4>
-						<ul>
-							<li><a href="">Applied Studies</a></li>
-							<li><a href="">Computer Engeneering</a></li>
-							<li><a href="">Software Engeneering</a></li>
-							<li><a href="">Informational Engeneering</a></li>
-							<li><a href="">System Engeneering</a></li>
-						</ul>
-					</div>
-					<div class="widget-item">
-						<h4>Graphic Design</h4>
-						<ul>
-							<li><a href="">Applied Studies</a></li>
-							<li><a href="">Computer Engeneering</a></li>
-							<li><a href="">Software Engeneering</a></li>
-							<li><a href="">Informational Engeneering</a></li>
-							<li><a href="">System Engeneering</a></li>
-						</ul>
-					</div>
-					<div class="widget-item">
-						<h4>Development</h4>
-						<ul>
-							<li><a href="">Applied Studies</a></li>
-							<li><a href="">Computer Engeneering</a></li>
-							<li><a href="">Software Engeneering</a></li>
-							<li><a href="">Informational Engeneering</a></li>
-							<li><a href="">System Engeneering</a></li>
-						</ul>
-					</div>
-					<div class="widget-item">
-						<h4>Newsletter</h4>
-						<form class="footer-newslatter">
-							<input type="email" placeholder="E-mail">
-							<button class="site-btn" style="background-color: #d82a4e;">Subscribe</button>
-							<p>*We don't spam</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-bottom">
-			<div class="footer-warp">
-				<ul class="footer-menu">
-					<li><a href="#">Terms & Conditions</a></li>
-					<li><a href="#">Register</a></li>
-					<li><a href="#">Privacy</a></li>
-				</ul>
-				<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-			</div>
-		</div>
-	</footer> 
-	<!-- footer section end -->
+    <!-- banner section -->
+    <section class="banner-section spad">
+      <div class="container">
+        <div class="section-title mb-0 pb-2" style="color: #333">
+          <h2>Join Our Community Now!</h2>
+          <p>
+            Take the first step towards your future. Join thousands of students
+            already learning with us. Early bird discounts available for
+            upcoming batches.
+          </p>
+        </div>
+        <div class="text-center pt-5">
+          <a href="#" class="site-btn">Register Now</a>
+        </div>
+      </div>
+    </section>
+    <!-- banner section end -->
 
+    <!-- footer section -->
+    <footer class="footer-section spad pb-0">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-warp">
+            <div class="widget-item">
+              <h4>Contact Info</h4>
+              <ul class="contact-list">
+                <li>
+                  WebUni Education Campus<br />Sector 62, Noida<br />Uttar
+                  Pradesh, India 201309
+                </li>
+                <li>+91 1800 200 3000</li>
+                <li>admissions@webuni.edu.in</li>
+              </ul>
+            </div>
+            <div class="widget-item">
+              <h4>Engineering</h4>
+              <ul>
+                <li><a href="">Applied Studies</a></li>
+                <li><a href="">Computer Engineering</a></li>
+                <li><a href="">Software Engineering</a></li>
+                <li><a href="">Informational Engineering</a></li>
+                <li><a href="">System Engineering</a></li>
+              </ul>
+            </div>
+            <div class="widget-item">
+              <h4>Graphic Design</h4>
+              <ul>
+                <li><a href="">Applied Studies</a></li>
+                <li><a href="">Computer Engineering</a></li>
+                <li><a href="">Software Engineering</a></li>
+                <li><a href="">Informational Engineering</a></li>
+                <li><a href="">System Engineering</a></li>
+              </ul>
+            </div>
+            <div class="widget-item">
+              <h4>Development</h4>
+              <ul>
+                <li><a href="">Applied Studies</a></li>
+                <li><a href="">Computer Engineering</a></li>
+                <li><a href="">Software Engineering</a></li>
+                <li><a href="">Informational Engineering</a></li>
+                <li><a href="">System Engineering</a></li>
+              </ul>
+            </div>
+            <div class="widget-item">
+              <h4>Newsletter</h4>
+              <form class="footer-newslatter">
+                <input type="email" placeholder="E-mail" />
+                <button class="site-btn">Subscribe</button>
+                <p>*We don't spam</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="footer-warp">
+            <ul class="footer-menu">
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Register</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+            <div class="copyright">
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              All rights reserved | This template is made with
+              <i class="fa fa-heart-o" aria-hidden="true"></i> by
+              <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer section end -->
 
-	<!--====== Javascripts & Jquery ======-->
-	<script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }} "></script>
-	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }} "></script>
-	<script src="https://cdn.jsdelivr.net/npm/mixitup/dist/mixitup.min.js"></script> 
-	<script src="{{ url_for('static', filename='js/circle-progress.min.js') }}"></script>
+    <!--====== Javascripts & Jquery ======-->
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mixitup/dist/mixitup.min.js"></script>
+    <script src="{{ url_for('static', filename='js/circle-progress.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
-	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <!-- load for map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWTIlluowDL-X4HbYQt3aDw_oi2JP0Krc&sensor=false"></script>
+    <script src="js/map.js"></script>
 
-	<!-- load for map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWTIlluowDL-X4HbYQt3aDw_oi2JP0Krc&sensor=false"></script>
-	<script src="js/map.js"></script>
+    <script>
+      // Initialize animations
+      document.addEventListener("DOMContentLoaded", function () {
+        const animatedElements = document.querySelectorAll(
+          ".animate-input, .animate-title"
+        );
+        animatedElements.forEach((el, index) => {
+          setTimeout(() => {
+            el.style.animationDelay = `${index * 0.1}s`;
+          }, 100);
+        });
+      });
 
-</body>
+      // Add mobile menu toggle
+      document.querySelector(".nav-switch").addEventListener("click", () => {
+        const mainMenu = document.querySelector(".main-menu");
+        mainMenu.style.display =
+          mainMenu.style.display === "block" ? "none" : "block";
+      });
+    </script>
+  </body>
 </html>
